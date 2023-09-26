@@ -1,0 +1,175 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "text"
+    },
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "img2": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "isNew": {
+      "type": "boolean",
+      "default": false
+    },
+    "size": {
+      "type": "enumeration",
+      "enum": [
+        "XXS",
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "X3L",
+        "One Size",
+        "No Size",
+        "S 10.00",
+        "S 25.00",
+        "S 32B/C",
+        "S 32D/DD",
+        "S 32E/F",
+        "S 34B/C",
+        "S 34D/DD",
+        "S 34E/F",
+        "S 36B/C",
+        "S 38B/C",
+        "S 40B/C",
+        "S 42B/C",
+        "S 50.00",
+        "S 100.00",
+        "M 10 / W 11",
+        "M 11 / W 12",
+        "M 12 / W 13",
+        "M 13 / W 14",
+        "M 5 / W 6",
+        "M 6 / W 7",
+        "M 7 / W 8",
+        "M 8 / W 9",
+        "M 9 / W 10"
+      ],
+      "default": "S"
+    },
+    "fit": {
+      "type": "enumeration",
+      "enum": [
+        "Slim Fit",
+        "Oversized",
+        "Regular Fit",
+        "Body Fit",
+        "Compression Fit",
+        "Regular",
+        "Final Sale - Non Returnable",
+        "Baselayer",
+        "Oversized Fit",
+        "Muscle Fit",
+        "Light Support",
+        "Medium Support",
+        "High Support",
+        "Tall"
+      ],
+      "default": "Regular Fit"
+    },
+    "color": {
+      "type": "enumeration",
+      "enum": [
+        "Black",
+        "Blue",
+        "Brown",
+        "Green",
+        "Grey",
+        "Multi",
+        "Orange",
+        "Pink",
+        "Purple",
+        "Red",
+        "White",
+        "Yellow"
+      ],
+      "default": "Black"
+    },
+    "pattern": {
+      "type": "enumeration",
+      "enum": [
+        "Abstract",
+        "Camo",
+        "Animal",
+        "Fleck",
+        "Graphics",
+        "Tie dye"
+      ],
+      "default": "Abstract"
+    },
+    "discount": {
+      "type": "enumeration",
+      "enum": [
+        "D20%",
+        "D30%",
+        "D40%",
+        "D50%",
+        "D60%"
+      ]
+    },
+    "price": {
+      "type": "decimal",
+      "default": 20
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "products"
+    },
+    "subcategories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::subcategory.subcategory",
+      "inversedBy": "products"
+    },
+    "features": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::feature.feature",
+      "mappedBy": "product"
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "product"
+    }
+  }
+}
