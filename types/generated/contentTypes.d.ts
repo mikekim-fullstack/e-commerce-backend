@@ -785,6 +785,38 @@ export interface ApiFeatureFeature extends Schema.CollectionType {
   };
 }
 
+export interface ApiFeatureImageFeatureImage extends Schema.CollectionType {
+  collectionName: 'feature_images';
+  info: {
+    singularName: 'feature-image';
+    pluralName: 'feature-images';
+    displayName: 'Feature Image';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    img: Attribute.Media;
+    title: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::feature-image.feature-image',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::feature-image.feature-image',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProductProduct extends Schema.CollectionType {
   collectionName: 'products';
   info: {
@@ -1017,6 +1049,7 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::cover-image.cover-image': ApiCoverImageCoverImage;
       'api::feature.feature': ApiFeatureFeature;
+      'api::feature-image.feature-image': ApiFeatureImageFeatureImage;
       'api::product.product': ApiProductProduct;
       'api::review.review': ApiReviewReview;
       'api::subcategory.subcategory': ApiSubcategorySubcategory;
