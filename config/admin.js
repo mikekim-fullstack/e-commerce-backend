@@ -1,4 +1,5 @@
 module.exports = ({ env }) => ({
+  // url: '/admin',
   auth: {
     secret: env('ADMIN_JWT_SECRET'),
   },
@@ -10,4 +11,4 @@ module.exports = ({ env }) => ({
       salt: env('TRANSFER_TOKEN_SALT'),
     },
   },
-});
+})
