@@ -934,6 +934,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'oneToMany',
       'api::review.review'
     >;
+    specialProduct: Attribute.Enumeration<['trending', 'featured']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

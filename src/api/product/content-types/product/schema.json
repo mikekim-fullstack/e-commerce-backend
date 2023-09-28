@@ -170,6 +170,13 @@
       "relation": "oneToMany",
       "target": "api::review.review",
       "mappedBy": "product"
+    },
+    "specialProduct": {
+      "type": "enumeration",
+      "enum": [
+        "trending",
+        "featured"
+      ]
     }
   }
 }
